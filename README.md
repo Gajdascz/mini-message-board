@@ -2,7 +2,7 @@
 
 Developed as part of [The Odin Project curriculum](https://www.theodinproject.com/lessons/nodejs-mini-message-board), this project provided me with a short introduction to developing an Express application.
 
-- **Live Preview:** [Deployed Using Railway](https://github.com/Gajdascz/mini-message-board)
+- **Live Preview:** [Deployed Using Railway](https://mini-message-board-production-839b.up.railway.app/)
 
 ## Learning Outcomes
 
