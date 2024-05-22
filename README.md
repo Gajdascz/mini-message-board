@@ -2,6 +2,8 @@
 
 Developed as part of [The Odin Project curriculum](https://www.theodinproject.com/lessons/nodejs-mini-message-board), this project provided me with a short introduction to developing an Express application.
 
+- **Live Preview:** [Deployed Using Railway](https://github.com/Gajdascz/mini-message-board)
+
 ## Learning Outcomes
 
 - **Express**
@@ -12,10 +14,10 @@ Developed as part of [The Odin Project curriculum](https://www.theodinproject.co
 
 ## Created With
 
-- **Languages**
-  - [**JavaScript**](https://ecma-international.org/publications-and-standards/standards/): Core language.
-  - [**HTML5**](https://html.spec.whatwg.org/multipage/): DOM structuring.
-  - [**Node.js**](https://nodejs.org/en): Javascript runtime environment.
-  - [**Express**](https://expressjs.com/): Node web framework.
-  - [**Git**](https://git-scm.com/): Version control and source code management.
-  - [**GitHub**](https://github.com/): Remote repository hosting.
+- [**JavaScript**](https://ecma-international.org/publications-and-standards/standards/): Core language.
+- [**HTML5**](https://html.spec.whatwg.org/multipage/): DOM structuring.
+- [**Node.js**](https://nodejs.org/en): Javascript runtime environment.
+- [**Express**](https://expressjs.com/): Node web framework.
+- [**Railway**](https://railway.app/): Web host and streamlined application deployment.
+- [**Git**](https://git-scm.com/): Version control and source code management.
+- [**GitHub**](https://github.com/): Remote repository hosting.
