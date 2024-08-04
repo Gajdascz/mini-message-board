@@ -1,41 +1,58 @@
-import e from 'express';
-import createHttpError from 'http-errors';
-import path from 'node:path';
-import cookieParser from 'cookie-parser';
-import morgan from 'morgan';
-import indexRouter from './routes/index.js';
-import usersRouter from './routes/users.js';
+import e from "express";
+import http from "node:http";
+import createDebug from "debug";
+import path from "node:path";
+import { onError, pipeOrPort, normalizePort } from "./utils.js";
+import messageRouter from "./routes/message.js";
 
 const app = e();
 const __dirname = import.meta.dirname;
 
-// view engine setup
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'ejs');
+const debug = createDebug("mini-message-board");
 
-app.use(morgan('dev'));
+const port = normalizePort(process.env.PORT || "3000");
+
+const server = http.createServer(app);
+
+// view engine setup
+app.set("views", path.join(__dirname, "views"));
+app.set("view engine", "ejs");
+
+app.set("port", port);
+
+// Global middleware
 app.use(e.json());
 app.use(e.urlencoded({ extended: false }));
-app.use(cookieParser());
-app.use(e.static(path.join(__dirname, 'public')));
+app.use(e.static(path.join(__dirname, "public")));
 
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
-
-// catch 404 and forward to error handler
-app.use(function (req, res, next) {
-  next(createHttpError(404));
-});
+// Route handlers
+app.use("/", messageRouter);
 
 // error handler
 app.use(function (err, req, res, next) {
   // set locals, only providing error in development
   res.locals.message = err.message;
-  res.locals.error = req.app.get('env') === 'development' ? err : {};
+  res.locals.error = req.app.get("env") === "development" ? err : {};
 
   // render the error page
   res.status(err.status || 500);
-  res.render('error');
+  res.render("error");
 });
+
+/**
+ * Listen on provided port, on all network interfaces.
+ */
+server.listen(port);
+server.on("error", (error) => onError(error, port));
+server.on("listening", onListening);
+
+/**
+ * Event listener for HTTP server "listening" event.
+ */
+function onListening() {
+  const addr = server.address();
+  const bind = pipeOrPort(addr.port ?? addr);
+  debug("Listening on " + bind);
+}
 
 export default app;

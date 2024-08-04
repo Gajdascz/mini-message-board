@@ -1,5 +1,7 @@
 # Mini Message Board
 
+_Updated as part of the The Odin Project's major NodeJS curriculum update_.
+
 Developed as part of [The Odin Project curriculum](https://www.theodinproject.com/lessons/nodejs-mini-message-board), this project provided me with a short introduction to developing an Express application.
 
 - **Live Preview:** [Deployed Using Railway](https://mini-message-board-production-839b.up.railway.app/)
@@ -7,10 +9,8 @@ Developed as part of [The Odin Project curriculum](https://www.theodinproject.co
 ## Learning Outcomes
 
 - **Express**
-  - Gained a deeper understanding of middleware and how fundamental it is to the Express framework.
-  - Used `express-generator` to create project file structure and boilerplate (manually updated to modern js).
+  - Gained a base knowledge of core Express concepts such as middleware, routes, and the MVC pattern.
   - Learned basic `EJS` rendering engine syntax and capabilities.
-  - Handled post request and subsequent view update.
 
 ## Created With
 

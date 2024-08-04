@@ -4,5 +4,26 @@ body {
 }
 
 a {
-  color: #00B7FF;
+  color: #00b7ff;
+}
+a > .view-message-detail-icon:hover {
+  fill: green;
+  border-color: green;
+}
+
+.view-message-detail-icon {
+  height: 16px;
+  width: 16px;
+  fill: #00b7ff;
+  border-radius: 50%;
+  background-color: white;
+  border: 1px solid transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.message-header-wrapper {
+  display: flex;
+  gap: 1em;
 }
