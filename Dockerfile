@@ -1,5 +1,5 @@
 # Use latest Node lts version (20.13.1)
-FROM node:20.13.1
+FROM node:20.16.0
 
 # Set the working directory inside the container
 WORKDIR /app
@@ -17,4 +17,4 @@ COPY . .
 EXPOSE 3000
 
 # Define command to execute program
-CMD ["node","./bin/www"]
+CMD ["node","app.js"]
