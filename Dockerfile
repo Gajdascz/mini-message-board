@@ -32,4 +32,4 @@ RUN rm -rf src tsconfig.json && npm prune --production
 EXPOSE 3000
 
 # Define command to execute program
-CMD ["npm","start:prod"]
+CMD ["npm","start"]
