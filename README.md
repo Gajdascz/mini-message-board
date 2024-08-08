@@ -9,8 +9,23 @@ Developed as part of [The Odin Project curriculum](https://www.theodinproject.co
 ## Learning Outcomes
 
 - **Express**
+
   - Gained a base knowledge of core Express concepts such as middleware, routes, and the MVC pattern.
   - Learned basic `EJS` rendering engine syntax and capabilities.
+
+- **Database**
+  - Integrated a Postgresql database using the [`node-postgres (pg)`](https://node-postgres.com/) library.
+    - Setup a local postgres installation and configured a local database.
+    - Created a basic `messages` table and initialization script.
+    - Implemented simple SQL queries to interact with the database.
+
+## Challenges
+
+The main challenge I faced was implementing, structuring, and deploying a locally developed Postgresql database.
+
+- Structuring and organizing the database modules (queries, connection management, etc.)
+- Deploying the database to Railway.
+  - Previously TOP taught MongodDB which offered a more straightforward development and deployment process through MongoDB Atlas. Adjusting the nuances of Postgresql and Railway was a very valuable learning experience.
 
 ## Created With
 

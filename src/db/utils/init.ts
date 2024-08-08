@@ -17,8 +17,8 @@ const client = new Client({
 });
 
 try {
+  console.log("initializing database...");
   console.time("init executed in");
-  console.log(client);
   await client.connect();
   await client.query(CREATE_MESSAGE_TABLE);
   await client.end();

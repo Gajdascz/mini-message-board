@@ -28,9 +28,8 @@ const selectAllMessages = async () => {
 };
 const selectById = async (id: number | string) => {
   const query = SELECT_BY_ID(id);
-  console.log(query);
-  console.log(id);
   const result = await pool.query(query);
   return result;
 };
+
 export default { insertMessage, selectByUsername, selectAllMessages, selectById };

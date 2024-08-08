@@ -21,6 +21,7 @@ const matcher = new RegExpMatcher({ ...englishDataset.build(), ...englishRecomme
 
 const clean = (str: string) => {
   let clean = str.trim();
+  if (clean.length === 0) throw new Error(`Message cannot be empty`);
   const matches = matcher.getAllMatches(clean);
   if (matches.length > 0) clean = censor.applyTo(clean, matches);
   return clean;

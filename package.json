@@ -4,8 +4,13 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "tsc --build",
-    "start": "concurrently --names \"TSC,NODE\" -c \"#007acc,#76D04B\" \"tsc -w --preserveWatchOutput true\" \"wait-on -d 2000 dist/app.js && node --watch dist/app.js\""
+    "start": "node dist/app.js",
+    "start:w": "node --watch dist/app.js",
+    "build": "tsc",
+    "build:w": "tsc -w --preserveWatchOutput true",
+    "rm:dist": "rm -rf dist/",
+    "start:dev": "concurrently --names \"TSC,NODE\" -c \"#007acc,#76D04B\" \"npm run build:w\" \"wait-on -d 2500 dist/app.js && npm run start:w\"",
+    "init:db": "node dist/db/utils/init.js"
   },
   "dependencies": {
     "chalk": "^5.3.0",
