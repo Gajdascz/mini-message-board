@@ -9,6 +9,6 @@ router.post("/new", messageController.postCreateNewMessage);
 
 router.get("/:id", messageController.getMessageDetail);
 
-router.get("/", messageController.getCurrentMessages);
+router.get("/", messageController.getAllMessages);
 
 export default router;

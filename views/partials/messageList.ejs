@@ -1,10 +1,11 @@
+<!-- prettier-ignore -->
 <ul>
   <% messages.forEach(message=> { %>
     <li>
       <div class="message-header-wrapper">
 
         <strong>Date:</strong>
-        <%= message.added %> <br />
+        <%= message.sent %> <br />
           <a href=<%=message.id%> >
             <svg class="view-message-detail-icon" xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24">
@@ -14,9 +15,9 @@
           </a>
       </div>
       <strong>From:</strong>
-      <%= message.user %> <br />
+      <%= message.username %> <br />
         <strong>message:</strong>
-        <%= message.text %>
+        <%= message.body %>
     </li>
     <% }); %>
 </ul>

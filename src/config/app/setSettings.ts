@@ -3,7 +3,7 @@ import path from "node:path";
 import { serverPort } from "../envVars.js";
 
 const settings = [
-  { name: "views", value: path.join(import.meta.dirname, "../views") },
+  { name: "views", value: path.join(import.meta.dirname, "../../../views") },
   { name: "view engine", value: "ejs" },
   { name: "port", serverPort },
 ];
