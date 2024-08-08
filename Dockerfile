@@ -29,4 +29,4 @@ ENV NODE_ENV=production
 RUN rm -rf src tsconfig.json && npm prune --production
 
 # Define command to execute program
-CMD ["npm","start"]
+CMD ["node","dist/app.js"]

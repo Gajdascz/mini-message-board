@@ -4,7 +4,6 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "start": "node dist/app.js",
     "start:w": "node --watch dist/app.js",
     "build": "tsc",
     "build:w": "tsc -w --preserveWatchOutput true",
