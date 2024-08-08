@@ -28,8 +28,5 @@ ENV NODE_ENV=production
 # Remove development dependencies
 RUN rm -rf src tsconfig.json && npm prune --production
 
-# Expose port the application will run on
-EXPOSE 3000
-
 # Define command to execute program
 CMD ["npm","start"]
