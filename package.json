@@ -19,7 +19,8 @@
     "express-async-handler": "^1.2.0",
     "obscenity": "^0.4.0",
     "pg": "^8.12.0",
-    "pg-format": "^1.0.4"
+    "pg-format": "^1.0.4",
+    "dotenv": "^16.4.5"
   },
   "devDependencies": {
     "@types/debug": "^4.1.12",
@@ -29,7 +30,6 @@
     "@types/pg": "^8.11.6",
     "@types/pg-format": "^1.0.5",
     "concurrently": "^8.2.2",
-    "dotenv": "^16.4.5",
     "typescript": "^5.5.4",
     "wait-on": "^7.2.0"
   }
