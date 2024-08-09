@@ -1,5 +1,6 @@
 import pg from "pg";
 import { argv } from "process";
+import { createLogger } from "../../config/logger.js";
 
 const { Client } = pg;
 
@@ -16,15 +17,26 @@ const client = new Client({
   connectionString: argv[2],
 });
 
+const verifyTable = async () => {
+  try {
+    await client.query("SELECT * FROM messages");
+  } catch (error) {
+    throw new Error(`Messages table does not exist`);
+  }
+};
+
+const logger = createLogger("db:utils:init");
+
 try {
-  console.log("initializing database...");
-  console.time("init executed in");
+  logger("initializing database...");
   await client.connect();
+  logger("connected to database");
   await client.query(CREATE_MESSAGE_TABLE);
+  await verifyTable();
+  logger("messages table created successfully");
   await client.end();
+  logger("client disconnected from database");
   console.log("init successful");
 } catch (error) {
-  console.error(error);
-} finally {
-  console.timeEnd("init executed in");
+  logger("error during init %O", error);
 }

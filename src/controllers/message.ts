@@ -8,6 +8,7 @@ import {
   englishDataset,
   englishRecommendedTransformers,
 } from "obscenity";
+import { createLogger } from "../config/logger.js";
 
 interface MessageController extends Controller {
   getAllMessages: RequestHandler;
@@ -18,6 +19,7 @@ interface MessageController extends Controller {
 
 const censor = new TextCensor();
 const matcher = new RegExpMatcher({ ...englishDataset.build(), ...englishRecommendedTransformers });
+const logger = createLogger("message:controller");
 
 const clean = (str: string) => {
   let clean = str.trim();
@@ -34,6 +36,7 @@ const messageController: MessageController = {
       ...msg,
       sent: msg.sent.toLocaleString(),
     }));
+    logger("getAllMessages", formattedMessages);
     res.render("index", { title: "Mini Message Board", messages: formattedMessages });
   }),
   getCreateNewMessage: asyncHandler((req, res, next) => {
@@ -44,6 +47,7 @@ const messageController: MessageController = {
     const cleanName = clean(nameInput);
     const cleanMessage = clean(messageInput);
     const sent = new Date();
+    logger("postCreateNewMessage", { cleanName, cleanMessage, sent });
     db.insertMessage(cleanName, cleanMessage, sent);
     res.redirect("/");
   }),
@@ -51,6 +55,7 @@ const messageController: MessageController = {
     if (!req.params.id) throw new Error("No id provided.");
     const { rows: msg } = await db.selectById(req.params.id);
     if (!msg) throw new Error(`Message with id: ${req.params.id} not found.`);
+    logger("getMessageDetail", msg);
     res.render("messageDetail", { message: msg });
   }),
 };
